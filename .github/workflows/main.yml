@@ -8,6 +8,9 @@ on:
 env:
   TZ: Asia/Shanghai
 
+permissions:
+  contents: write
+
 jobs:
   # a single job
   a-job-name:
