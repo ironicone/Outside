@@ -31,7 +31,8 @@ def custom_process(decrypted_content):
 
 def main():
     urls = [
-        'https://www.hd327658.xyz:20000/api/evmess'
+        'https://www.hd327658.xyz:20000/api/evmess',
+        'https://www.lt71126.xyz:20000/api/evmess'
     ]
     key = "ks9KUrbWJj46AftX"  # Replace with the correct key
     file_path = 'heidong.txt'
