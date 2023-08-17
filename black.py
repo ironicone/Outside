@@ -29,6 +29,21 @@ def custom_process(decrypted_content):
     encoded_content = "vmess://" + base64.b64encode(modified_content.encode('utf-8')).decode('utf-8')
     return encoded_content
 
+def encode_text_to_base64(input_file, output_file):
+    try:
+        with open(input_file, 'r', encoding='utf-8') as f:
+            text = f.read()
+        
+        encoded_text = base64.b64encode(text.encode('utf-8')).decode('utf-8')
+        
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(encoded_text)
+        
+        print(f"文本已编码并写入到 {output_file}")
+    except Exception as e:
+        print(f"发生错误：{e}")
+
+
 def main():
     urls = [
         'https://www.hd327658.xyz:20000/api/evmess',
@@ -58,6 +73,11 @@ def main():
                 file.write(processed_content + '\n')  # Add a newline after each content
             print(processed_content)
             time.sleep(1)
+
+    input_file = "heidong.txt"  # 输入文本文件名
+    output_file = "n0des.txt"  # 输出编码后文本文件名
+    
+    encode_text_to_base64(input_file, output_file)
 
 if __name__ == "__main__":
     main()
