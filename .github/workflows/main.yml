@@ -26,8 +26,10 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           pip3 install -r ./requirements.txt
-      - name: Run
+      - name: Run black.py
         run: python3 ./black.py
+      - name: Run times.py
+        run: python3 ./times.py
       - name: Commit
         env: 
          GIT_NAME: ${{ secrets.GIT_NAME }}
