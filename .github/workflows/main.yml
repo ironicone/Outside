@@ -26,12 +26,12 @@ jobs:
       - name: Run
         run: python3 ./black.py
       - name: Commit
-        env:
+        env: 
         GIT_NAME: ${{ secrets.GIT_NAME }}
         GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         run: |
-          git config --local user.name $GIT_NAME
-          git config --local user.email $GIT_EMAIL
+          git config --local user.name $env:GIT_NAME
+          git config --local user.email $env:GIT_EMAIL
           git add .
           git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
       - name: Push
