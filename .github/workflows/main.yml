@@ -27,8 +27,8 @@ jobs:
         run: python3 ./black.py
       - name: Commit
         env: 
-        GIT_NAME: ${{ secrets.GIT_NAME }}
-        GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+         GIT_NAME: ${{ secrets.GIT_NAME }}
+         GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         run: |
           git config --local user.name $env:GIT_NAME
           git config --local user.email $env:GIT_EMAIL
