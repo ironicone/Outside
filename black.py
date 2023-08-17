@@ -52,7 +52,7 @@ def main():
                 print(f"Duplicate content found on {url}. Switching to the next website.")
                 break
 
-     #       visited_contents.add(processed_content)
+            visited_contents.add(processed_content)
             with open(file_path, 'a') as file:
                 file.write(processed_content + '\n')  # Add a newline after each content
             print(processed_content)
