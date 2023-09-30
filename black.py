@@ -45,12 +45,13 @@ def encode_text_to_base64(input_file, output_file):
 
 
 def main():
+    # 定义要访问的URL列表
     urls = [
         'https://www.hd327658.xyz:20000/api/evmess',
         'https://www.lt71126.xyz:20000/api/evmess'
     ]
-    key = "ks9KUrbWJj46AftX"  # Replace with the correct key
-    file_path = 'heidong.txt'
+    key = "ks9KUrbWJj46AftX"  # 替换为正确的密钥
+    file_path = 'heidong.txt'  # 输出文件路径
     visited_contents = set()
 
     for url in urls:
@@ -58,25 +59,30 @@ def main():
             content = get_webpage_content(url)
             if content is None:
                 break
-            
             decrypted_content = decrypt(content, key)
-
-            # Custom processing of decrypted content
             processed_content = custom_process(decrypted_content)
-
+            
+            # 检查是否已经访问过此内容
             if processed_content in visited_contents:
-                print(f"Duplicate content found on {url}. Switching to the next website.")
+                print(f"在 {url} 上发现重复内容。切换到下一个网站。")
                 break
-
+            
             visited_contents.add(processed_content)
             with open(file_path, 'a') as file:
-                file.write(processed_content + '\n')  # Add a newline after each content
+                file.write(processed_content + '\n')
             print(processed_content)
             time.sleep(1)
+    
+    # 导出去重后的文件
+    deduplicated_file_path = 'n0des_deduplicated.txt'
+    with open(file_path, 'r') as input_file, open(deduplicated_file_path, 'w') as output_file:
+        unique_contents = set(input_file.readlines())
+        output_file.writelines(unique_contents)
+    
+    print(f"去重后的内容已导出到 {deduplicated_file_path}")
 
     input_file = "heidong.txt"  # 输入文本文件名
     output_file = "n0des.txt"  # 输出编码后文本文件名
-    
     encode_text_to_base64(input_file, output_file)
 
 if __name__ == "__main__":
