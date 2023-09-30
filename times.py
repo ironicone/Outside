@@ -17,6 +17,10 @@ def download_clashnode_file(date, output_filename):
         print(f"发生错误：{e}")
 
 if __name__ == "__main__":
-    date = datetime.datetime.now().strftime('%Y%m%d')
+    # 获取前一天的日期
+    today = datetime.date.today()
+    yesterday = today - datetime.timedelta(days=1)
+    date = yesterday.strftime('%Y%m%d')
+    
     output_filename = "n0des.yaml"
     download_clashnode_file(date, output_filename)
