@@ -1,1 +1,1 @@
-hy2://fc4488ef@167.160.90.252:60930/?insecure=1&sni=www.bing.com#20231007
+hy2://fc4488ef@167.160.90.252:60930/?insecure=1&sni=www.bing.com
