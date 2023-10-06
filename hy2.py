@@ -1,6 +1,5 @@
 import requests
 import json
-from datetime import datetime
 
 # 下载JSON配置文件
 url = "https://gitlab.com/free9999/ipupdate/-/raw/master/hysteria2/config.json"
@@ -14,11 +13,8 @@ if response.status_code == 200:
     tls = config_data.get("tls", {})
     insecure = tls.get("insecure", False)
     sni = tls.get("sni", "")
-
-    # 获取当前日期并格式化为YYYYMMDD
-    current_date = datetime.now().strftime("%Y%m%d")
-
-    new_content = f"hy2://{auth}@{server}/?insecure={int(insecure)}&sni={sni}#{current_date}"
+    
+    new_content = f"hy2://{auth}@{server}/?insecure={int(insecure)}&sni={sni}"
 
     # 将新内容保存到txt文件
     with open("hy2.txt", "w", encoding="utf-8") as f:
