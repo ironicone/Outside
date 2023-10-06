@@ -28,6 +28,8 @@ jobs:
           pip3 install -r ./requirements.txt
       - name: Run black.py
         run: python3 ./black.py
+      - name: Run hy2.py
+        run: python3 ./black.py
       - name: Run times.py
         run: python3 ./times.py
       - name: Commit
