@@ -1,0 +1,1 @@
+hysteria2://dongtaiwang.com@108.181.22.155:63400/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
