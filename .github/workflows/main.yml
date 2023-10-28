@@ -45,6 +45,19 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main      
+          branch: main     
+      - name: Sync Github Repos To Gitee  
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/ironicone
+          dst: gitee/ironicone  
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}  
+          dst_token:  ${{ secrets.GITEE_TOKEN }}  
+          account_type: user  
+          clone_style: "ssh"  
+          debug: true  
+          force_update: true  
+          static_list: "outside"  
+          timeout: '600s'  
 
 
