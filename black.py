@@ -5,12 +5,15 @@ from Crypto.Util.Padding import unpad
 import base64
 
 def get_webpage_content(url):
-    response = requests.get(url)
-    if response.status_code == 200:
-        return response.text
-    else:
-        print(f"Failed to fetch the webpage. Status code: {response.status_code}")
-        return None
+    try:
+        response = requests.get(url, timeout=5)
+        if response.status_code == 200:
+            return response.text
+        else:
+            print(f"Failed to fetch the webpage. Status code: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        print(f"Request error: {e}")
+    return None
 
 def decrypt(content, key):
     cipher = AES.new(key.encode('utf-8'), AES.MODE_CBC, key.encode('utf-8'))
@@ -35,34 +38,34 @@ def encode_text_to_base64(input_text, output_file):
         f.write(encoded_text + ' ')
 
 def main():
-    # 定义要访问的URL列表
+    # Define the list of URLs to access
     urls = [
         'https://www.hd327658.xyz:20000/api/evmess',
         'https://www.lt71126.xyz:20000/api/evmess'
     ]
-    key = "ks9KUrbWJj46AftX"  # 替换为正确的密钥
+    key = "ks9KUrbWJj46AftX"  # Replace with the correct key
 
     for url in urls:
-        temp_content = ''  # 临时保存内容的变量
+        temp_content = ''  # Temporary variable to store content
         
-        for _ in range(10):  # 读取每个网站的内容10次
+        for _ in range(10):  # Read content from each website 10 times
             content = get_webpage_content(url)
             if content is None:
                 break
             decrypted_content = decrypt(content, key)
             processed_content = custom_process(decrypted_content)
             
-            # 将内容存储在临时变量中
+            # Store the content in the temporary variable
             temp_content += processed_content + ' '
             
             print(processed_content)
-            time.sleep(1)  # 可以适当调整休眠时间
+            time.sleep(1)  # You can adjust the sleep time as needed
         
-        # 写入未编码的内容，追加而不覆盖
-        with open('heidong.txt', 'w') as file:
+        # Write the unencoded content, append instead of overwrite
+        with open('heidong.txt', 'a') as file:
             file.write(temp_content)
         
-        # 写入编码后的内容，追加而不覆盖
+        # Write the encoded content, append instead of overwrite
         encode_text_to_base64(temp_content, 'n0des.txt')
 
 if __name__ == "__main__":
