@@ -1,11 +1,12 @@
 import json
 import requests
+import base64
 
 # 定义JSON文件的URL列表
 json_urls = [
-	"https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/config.json",
-  "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/1/config.json",
-  "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/3/config.json"
+    "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/1/config.json",
+    "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/config.json",
+    "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/3/config.json"
 ]
 
 # 初始化一个空列表来存储所有的VLESS链接
@@ -55,7 +56,6 @@ for json_url in json_urls:
 
                         vless_link = f'vless://{uuid}@{server_address}:{server_port}?encryption=none&security={security}&sni={sni}&fp={fingerprint}&type=ws&host={host}&path={path}#xray'
                         vless_links.append(vless_link)
-
     else:
         print(f'无法获取JSON数据，HTTP状态码：{response.status_code}，URL: {json_url}')
 
@@ -65,3 +65,16 @@ with open('vless.txt', 'w') as txt_file:
         txt_file.write(vless_link + '\n')
 
 print(f'所有的VLESS链接已保存到vless.txt文件')
+
+# 读取生成的txt文件
+with open('vless.txt', 'r') as txt_file:
+    vless_links_text = txt_file.read()
+
+# 对txt文件内容进行base64编码
+encoded_text = base64.b64encode(vless_links_text.encode('utf-8')).decode('utf-8')
+
+# 保存base64编码后的内容到另一个txt文件
+with open('vless_base64.txt', 'w') as encoded_file:
+    encoded_file.write(encoded_text)
+
+print('base64编码后的内容已保存到vless_base64.txt文件')
