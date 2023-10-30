@@ -28,6 +28,8 @@ jobs:
           pip3 install -r ./requirements.txt
       - name: Run hy2.py
         run: python3 ./hy2.py
+      - name: Run vless.py
+        run: python3 ./vless.py
       - name: Run black.py
         run: python3 ./black.py
       - name: Run times.py
