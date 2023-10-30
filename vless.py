@@ -42,7 +42,7 @@ for json_url in json_urls:
                         shortId = reality_settings.get('shortId', '')
                         sid = reality_settings.get('spiderX', '')
 
-                        vless_link = f'vless://{uuid}@{server_address}:{server_port}?encryption={security}&flow=xtls-rprx-vision&security=reality&sni={sni}&fp={fingerprint}&pbk={publicKey}&sid={shortId}&type=tcp&headerType=none#xray'
+                        vless_link = f'vless://{uuid}@{server_address}:{server_port}?encryption={security}&flow=xtls-rprx-vision&security=reality&sni={sni}&fp={fingerprint}&pbk={publicKey}&sid={shortId}&type=tcp&headerType=none'
                         vless_links.append(vless_link)
                     elif network == 'ws':
                         security = 'tls'
@@ -54,7 +54,7 @@ for json_url in json_urls:
                         path = ws_settings.get('path', '')
                         host = ws_settings.get('headers', {}).get('Host', '')
 
-                        vless_link = f'vless://{uuid}@{server_address}:{server_port}?encryption=none&security={security}&sni={sni}&fp={fingerprint}&type=ws&host={host}&path={path}#xray'
+                        vless_link = f'vless://{uuid}@{server_address}:{server_port}?encryption=none&security={security}&sni={sni}&fp={fingerprint}&type=ws&host={host}&path={path}'
                         vless_links.append(vless_link)
     else:
         print(f'无法获取JSON数据，HTTP状态码：{response.status_code}，URL: {json_url}')
