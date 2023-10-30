@@ -29,19 +29,10 @@ def custom_process(decrypted_content):
     encoded_content = "vmess://" + base64.b64encode(modified_content.encode('utf-8')).decode('utf-8')
     return encoded_content
 
-def encode_text_to_base64(input_file, output_file):
-    try:
-        with open(input_file, 'r', encoding='utf-8') as f:
-            text = f.read()
-        
-        encoded_text = base64.b64encode(text.encode('utf-8')).decode('utf-8')
-        
-        with open(output_file, 'w', encoding='utf-8') as f:
-            f.write(encoded_text)
-        
-        print(f"文本已编码并写入到 {output_file}")
-    except Exception as e:
-        print(f"发生错误：{e}")
+def encode_text_to_base64(input_text, output_file):
+    encoded_text = base64.b64encode(input_text.encode('utf-8')).decode('utf-8')
+    with open(output_file, 'w') as f:
+        f.write(encoded_text + ' ')
 
 def main():
     # 定义要访问的URL列表
@@ -52,8 +43,7 @@ def main():
     key = "ks9KUrbWJj46AftX"  # 替换为正确的密钥
 
     for url in urls:
-        file_path = 'heidong.txt'  # 输出文件路径
-        file_path_encoded = 'n0des.txt'  # 输出编码后文件路径
+        temp_content = ''  # 临时保存内容的变量
         
         for _ in range(10):  # 读取每个网站的内容10次
             content = get_webpage_content(url)
@@ -62,16 +52,18 @@ def main():
             decrypted_content = decrypt(content, key)
             processed_content = custom_process(decrypted_content)
             
-            # 写入未编码的内容，追加而不覆盖
-            with open(file_path, 'a') as file:
-                file.write(processed_content + ' ')
-            
-            # 写入编码后的内容，追加而不覆盖
-            with open(file_path_encoded, 'a') as file_encoded:
-                file_encoded.write(processed_content + ' ')
+            # 将内容存储在临时变量中
+            temp_content += processed_content + ' '
             
             print(processed_content)
             time.sleep(1)  # 可以适当调整休眠时间
+        
+        # 写入未编码的内容，追加而不覆盖
+        with open('heidong.txt', 'w') as file:
+            file.write(temp_content)
+        
+        # 写入编码后的内容，追加而不覆盖
+        encode_text_to_base64(temp_content, 'n0des.txt')
 
 if __name__ == "__main__":
     main()
