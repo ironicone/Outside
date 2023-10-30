@@ -43,7 +43,6 @@ def encode_text_to_base64(input_file, output_file):
     except Exception as e:
         print(f"发生错误：{e}")
 
-
 def main():
     # 定义要访问的URL列表
     urls = [
@@ -55,7 +54,7 @@ def main():
     visited_contents = set()
 
     for url in urls:
-        while True:
+        for _ in range(10):  # 读取每个网站的内容10次
             content = get_webpage_content(url)
             if content is None:
                 break
@@ -71,16 +70,8 @@ def main():
             with open(file_path, 'a') as file:
                 file.write(processed_content + '\n')
             print(processed_content)
-            time.sleep(1)
+            time.sleep(1)  # 可以适当调整休眠时间
     
-    # 导出去重后的文件
-    deduplicated_file_path = 'n0des_deduplicated.txt'
-    with open(file_path, 'r') as input_file, open(deduplicated_file_path, 'w') as output_file:
-        unique_contents = set(input_file.readlines())
-        output_file.writelines(unique_contents)
-    
-    print(f"去重后的内容已导出到 {deduplicated_file_path}")
-
     input_file = "heidong.txt"  # 输入文本文件名
     output_file = "n0des.txt"  # 输出编码后文本文件名
     encode_text_to_base64(input_file, output_file)
