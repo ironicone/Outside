@@ -50,10 +50,11 @@ def main():
         'https://www.lt71126.xyz:20000/api/evmess'
     ]
     key = "ks9KUrbWJj46AftX"  # 替换为正确的密钥
-    file_path = 'heidong.txt'  # 输出文件路径
-    visited_contents = set()
 
     for url in urls:
+        file_path = 'heidong.txt'  # 输出文件路径
+        file_path_encoded = 'n0des.txt'  # 输出编码后文件路径
+        
         for _ in range(10):  # 读取每个网站的内容10次
             content = get_webpage_content(url)
             if content is None:
@@ -61,20 +62,16 @@ def main():
             decrypted_content = decrypt(content, key)
             processed_content = custom_process(decrypted_content)
             
-            # 检查是否已经访问过此内容
-            if processed_content in visited_contents:
-                print(f"在 {url} 上发现重复内容。切换到下一个网站。")
-                break
-            
-            visited_contents.add(processed_content)
+            # 写入未编码的内容，追加而不覆盖
             with open(file_path, 'a') as file:
-                file.write(processed_content + '\n')
+                file.write(processed_content + ' ')
+            
+            # 写入编码后的内容，追加而不覆盖
+            with open(file_path_encoded, 'a') as file_encoded:
+                file_encoded.write(processed_content + ' ')
+            
             print(processed_content)
             time.sleep(1)  # 可以适当调整休眠时间
-    
-    input_file = "heidong.txt"  # 输入文本文件名
-    output_file = "n0des.txt"  # 输出编码后文本文件名
-    encode_text_to_base64(input_file, output_file)
 
 if __name__ == "__main__":
     main()
