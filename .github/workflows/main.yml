@@ -32,6 +32,8 @@ jobs:
         run: python3 ./vless.py
       - name: Run times.py
         run: python3 ./times.py
+      - name: Run black.py
+        run: python3 ./black.py
       - name: Commit
         env: 
          GIT_NAME: ${{ secrets.GIT_NAME }}
