@@ -68,7 +68,7 @@
   }
 }
 {
-  "server": "www.dtku48.xyz:37151",
+  "server": "167.160.90.252:8567",
   "auth": "dongtaiwang.com",
   "tls": {
     "sni": "www.bing.com",
@@ -80,7 +80,6 @@
     "initConnReceiveWindow": 33554432,
     "maxConnReceiveWindow": 33554432
   },
-  "fastOpen": true,
   "socks5": {
     "listen": "127.0.0.1:1080"
   },
