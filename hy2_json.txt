@@ -68,7 +68,7 @@
   }
 }
 {
-  "server": "167.160.90.252:8567",
+  "server": "167.160.90.252:63530",
   "auth": "dongtaiwang.com",
   "tls": {
     "sni": "www.bing.com",
