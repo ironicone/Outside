@@ -15,65 +15,63 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies:
-  - {name: ???? _US_美国->????_DE_德国, server: xyz37.forwardv2raytelegramchannel.fun, port: 8080, type: vmess, uuid: d2a28a5c-3e3d-4fa0-be5b-e6a8136d2039, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: xyz37.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国->????_DE_德国 2, server: a1.forwardv2raytelegramchannel.fun, port: 2095, type: vmess, uuid: 19529d4e-8c0e-47d0-93de-bd9a31b476d2, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: a1.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国->????_IT_意大利, server: it1.cou.gay, port: 443, type: vmess, uuid: 564ee758-abeb-4950-b13f-e4edba2f0254, alterId: 0, cipher: auto, tls: true, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/it1?ed=2048", headers: {Host: it1.cou.gay}}}
-  - {name: ???? _US_美国->????_DE_德国 3, server: xyz20.forwardv2raytelegramchannel.fun, port: 2095, type: vmess, uuid: 19529d4e-8c0e-47d0-93de-bd9a31b476d2, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: xyz20.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国->????_IR_伊朗, server: xyz46.forwardv2raytelegramchannel.fun, port: 8080, type: vmess, uuid: d2a28a5c-3e3d-4fa0-be5b-e6a8136d2039, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: xyz46.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _CA_加拿大, server: 193.203.203.88, port: 2082, type: vmess, uuid: 5f2d026e-1dbd-4bb0-aa61-b1bcc544ab2c, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: http, http-opts: {method: GET, path: [/]}}
-  - {name: ???? _US_美国, server: k1.forwardv2raytelegramchannel.fun, port: 8080, type: vmess, uuid: d2a28a5c-3e3d-4fa0-be5b-e6a8136d2039, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: k1.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国->????_DE_德国 4, server: c.forwardv2raytelegramchannel.fun, port: 2095, type: vmess, uuid: 19529d4e-8c0e-47d0-93de-bd9a31b476d2, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: c.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国->????_IN_印度, server: mm2.shabijichang.com, port: 80, type: vmess, uuid: c458695d-6908-45c3-9512-e0c46418454c, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: mm2.shabijichang.com}}}
-  - {name: ???? _US_美国 2, server: cf-lt.sharecentre.online, port: 80, type: vmess, uuid: 2a683a54-f098-4d98-92fc-762b85d907b9, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /api/v3/download.getFile, headers: {Host: ssrsub.v004.ssrsub.com}}}
-  - {name: ???? _US_美国 3, server: 5.161.127.110, port: 3389, type: vmess, uuid: 9c050a86-d612-48f1-ec32-e573df08a1b7, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: http, http-opts: {method: GET, path: [/]}}
-  - {name: ???? _US_美国->????_DE_德国 5, server: xyz22.forwardv2raytelegramchannel.fun, port: 2052, type: vmess, uuid: d62e72b0-14a2-439a-9912-c133bf89237b, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: xyz22.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国 4, server: xyz8.forwardv2raytelegramchannel.fun, port: 2095, type: vmess, uuid: 19529d4e-8c0e-47d0-93de-bd9a31b476d2, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: xyz8.forwardv2raytelegramchannel.fun}}}
+  - {name: ???? _CA_加拿大, server: 23.227.38.45, port: 443, type: trojan, password: 3f23c1eb-ace4-49ec-a7f0-f591b006b95a, sni: jus3.jsjc.sbs, skip-cert-verify: false, network: ws, ws-opts: {path: /jsjc/us3, headers: {Host: jus3.jsjc.sbs}}}
+  - {name: ???? _US_美国, server: skk.moe, port: 443, type: vmess, uuid: 9c906ced-40f7-48cf-b0d2-64b287f7bfcd, alterId: 0, cipher: auto, tls: true, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: 9c906ced-40f7-48cf-b0d2-64b287f7bfcd-vm, headers: {Host: icu2.mac2win.top}}}
+  - {name: ???? _CN_中国->????_PK_巴基斯坦, server: 120.52.18.31, port: 51500, type: vmess, uuid: 3ff5a6d3-3644-37de-bf3e-b2872ec16314, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /db00, headers: {Host: cache-hk-2.cn-db.top}}}
+  - {name: ???? _US_美国 2, server: v4.cfnode.eu.org, port: 80, type: vmess, uuid: 9edb5c77-8818-4780-9cef-d81b7e2d932b, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: usyx.651568.xyz}}}
+  - {name: ???? _CN_中国->????_US_美国, server: other.kunlun-ppg.com, port: 10838, type: trojan, password: aaa1ae63-8cc2-4cf4-aef5-f911d0fdd461, sni: alibaba-node.cn, skip-cert-verify: false}
+  - {name: ???? _US_美国 3, server: ns1.v2-vip.fun, port: 80, type: vmess, uuid: 2a683a54-f098-4d98-92fc-762b85d907b9, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /api/v3/download.getFile, headers: {Host: ssrsub.v03.ssrsub.com}}}
+  - {name: ???? _CA_加拿大 2, server: 23.227.38.29, port: 443, type: trojan, password: 3f23c1eb-ace4-49ec-a7f0-f591b006b95a, sni: jus2.jsjc.sbs, skip-cert-verify: false, network: ws, ws-opts: {path: /jsjc/us2, headers: {Host: jus2.jsjc.sbs}}}
+  - {name: ???? _CN_中国->????_US_美国 2, server: other.kunlun-ppg.com, port: 10837, type: trojan, password: aaa1ae63-8cc2-4cf4-aef5-f911d0fdd461, sni: alibaba-node.cn, skip-cert-verify: false}
+  - {name: ???? _CN_中国->????_US_美国 3, server: other.kunlun-ppg.com, port: 10850, type: trojan, password: aaa1ae63-8cc2-4cf4-aef5-f911d0fdd461, sni: alibaba-node.cn, skip-cert-verify: false}
+  - {name: ???? _US_美国->????_GB_英国, server: family.mgtajhiz.ir, port: 2052, type: vmess, uuid: 544f2e93-51b0-4d47-fd72-e7d858021bbd, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: family.mgtajhiz.ir}}}
+  - {name: ???? _US_美国 4, server: 95.164.46.154, port: 8080, type: vmess, uuid: 431fda16-e0f8-4884-b4fd-965f03f86471, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: ???? _US_美国 5, server: 158.101.7.8, port: 80, type: vmess, uuid: 95b45c49-f5c0-4959-bb64-2b8fbc4a869c, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: ???? _HK_香港->????_US_美国, server: nice2.xn-w1yu8o.xyz, port: 80, type: vmess, uuid: a5319baa-e846-43c7-91c2-d67a1e307c8b, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: icu2.mac2win.top}}}
+  - {name: ???? _US_美国->????_GB_英国 2, server: ld2.shabijichang.com, port: 80, type: vmess, uuid: c458695d-6908-45c3-9512-e0c46418454c, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: ld2.shabijichang.com}}}
+  - {name: ???? _US_美国->????_DE_德国, server: 104.18.203.232, port: 8880, type: vmess, uuid: 687ed8be-62d2-4a08-aabb-b896f964a657, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /@vpn_whal, headers: {Host: gr-allnetwork.whaleproject.tech}}}
   - {name: ???? _CN_中国->????_RU_俄罗斯联邦, server: 183.232.238.77, port: 10010, type: vmess, uuid: ab537195-b74c-3df5-a3a1-d504345e80bb, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false}
-  - {name: ???? _US_美国->????_NL_荷兰, server: dl2.fanqiecloud.top, port: 2086, type: vmess, uuid: c2c77753-55e1-45fc-8806-23b77f08f349, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sssddd, headers: {Host: cf-nl.fanqiecloud.top}}}
-  - {name: ???? _US_美国 5, server: 162.159.133.68, port: 80, type: vmess, uuid: 2a683a54-f098-4d98-92fc-762b85d907b9, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /api/v3/download.getFile, headers: {Host: ssrsub.v004.ssrsub.com}}}
-  - {name: ???? _US_美国->????_DE_德国 6, server: xyz26.forwardv2raytelegramchannel.fun, port: 8080, type: vmess, uuid: d2a28a5c-3e3d-4fa0-be5b-e6a8136d2039, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: xyz26.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国 6, server: ns1.v2-vip.fun, port: 80, type: vmess, uuid: 2a683a54-f098-4d98-92fc-762b85d907b9, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /api/v3/download.getFile, headers: {Host: ssrsub.v03.ssrsub.com}}}
-  - {name: ???? _US_美国->????_DE_德国 7, server: xyz28.forwardv2raytelegramchannel.fun, port: 2096, type: vmess, uuid: 819f16dc-5632-42dd-8427-09a702867016, alterId: 0, cipher: auto, tls: true, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: xyz28.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国 7, server: tttt.ssfree.ru, port: 443, type: vmess, uuid: 8537f35e-8f99-11ee-8c61-00163e49219e, alterId: 0, cipher: auto, tls: true, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /search, headers: {Host: tttt.ssfree.ru}}}
-  - {name: ???? _GB_英国, server: 172.99.190.109, port: 443, type: vmess, uuid: 03fcc618-b93d-6796-6aed-8a38c975d581, alterId: 0, cipher: auto, tls: true, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: linkvws}}
-  - {name: ???? _US_美国->????_DE_德国 8, server: xyz18.forwardv2raytelegramchannel.fun, port: 2052, type: vmess, uuid: d62e72b0-14a2-439a-9912-c133bf89237b, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: xyz18.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国 8, server: 198.41.223.215, port: 80, type: vmess, uuid: 2a683a54-f098-4d98-92fc-762b85d907b9, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /api/v3/download.getFile, headers: {Host: ssrsub.v004.ssrsub.com}}}
-  - {name: ???? _US_美国 9, server: fr-v2ray.freevmess.com, port: 8442, type: vmess, uuid: 6773a666-5593-4c9f-aacd-52300b6a02d4, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: http, http-opts: {method: GET, path: [/], headers: {Host: [fr-v2ray.freevmess.com]}}}
-  - {name: ???? _US_美国 10, server: xyz24.forwardv2raytelegramchannel.fun, port: 2095, type: vmess, uuid: 19529d4e-8c0e-47d0-93de-bd9a31b476d2, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /FORWARDV2RAY, headers: {Host: xyz24.forwardv2raytelegramchannel.fun}}}
-  - {name: ???? _US_美国 11, server: singapore.com, port: 80, type: vmess, uuid: 2a683a54-f098-4d98-92fc-762b85d907b9, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /api/v3/download.getFile, headers: {Host: ssrsub.v005.ssrsub.com}}}
-  - {name: ???? _AU_澳大利亚, server: au.takeshi.wiki, port: 80, type: vmess, uuid: 59517e0b-ae1c-41d3-9c44-c44cea6f7546, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: au.takeshi.wiki}}}
+  - {name: ???? _CN_中国->????_UA_乌克兰, server: other.kunlun-ppg.com, port: 10845, type: trojan, password: aaa1ae63-8cc2-4cf4-aef5-f911d0fdd461, sni: alibaba-node.cn, skip-cert-verify: false}
+  - {name: ???? _HK_香港->????_IN_印度, server: cm3.xn-w1yu8o.xyz, port: 80, type: vmess, uuid: e759eadc-8e71-47b0-874e-871e3d8dc31e, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: icu3.mac2win.top}}}
+  - {name: ???? _CA_加拿大 3, server: 23.227.38.19, port: 443, type: trojan, password: 3f23c1eb-ace4-49ec-a7f0-f591b006b95a, sni: jus1.jsjc.sbs, skip-cert-verify: false, network: ws, ws-opts: {path: /jsjc/us1, headers: {Host: jus1.jsjc.sbs}}}
+  - {name: ???? _US_美国 6, server: us-02.jikuai.xyz, port: 2082, type: vmess, uuid: 70666776-4e9f-4350-b3f0-afaff6a70db0, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: us-02.jikuai.xyz}}}
+  - {name: ???? _HK_香港->????_IN_印度 2, server: cover.mac2win.top, port: 8080, type: vmess, uuid: 9f44252b-9f4d-4820-d8e8-cc9aeea0aa7e, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: icu3.mac2win.top}}}
+  - {name: ???? _US_美国 7, server: usd.yj2022.gq, port: 8880, type: vmess, uuid: 4b5e4565-322f-4223-a891-78a84f189726, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /XSjeg73o6ZdsheahCb5JG, headers: {Host: usd.yj2022.gq}}}
+  - {name: ???? _SG_新加坡->????_US_美国, server: jp02.nttkk.com, port: 443, type: vmess, uuid: 9c906ced-40f7-48cf-b0d2-64b287f7bfcd, alterId: 0, cipher: auto, tls: true, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: 9c906ced-40f7-48cf-b0d2-64b287f7bfcd-vm, headers: {Host: icu2.mac2win.top}}}
+  - {name: ???? _DE_德国, server: 213.202.216.14, port: 443, type: trojan, password: 3f23c1eb-ace4-49ec-a7f0-f591b006b95a, sni: downloadde.xn--mes358acgm99l.com, skip-cert-verify: false}
+  - {name: ???? _DE_德国 2, server: v2line.telegram.channel.1344.fr8678825324247b8176d59f83c30bd94d23d2e3ac5cd4a743bkwqeikvdyufr.cyou, port: 80, type: vmess, uuid: 9d5e69d2-46cf-4865-95fe-a2ee8c52a013, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: v2line.telegram.channel.1344.fr8678825324247b8176d59f83c30bd94d23d2e3ac5cd4a743bkwqeikvdyufr.cyou}}}
+  - {name: ???? _US_美国 8, server: cfcdn1.sanfencdn9.com, port: 2052, type: vmess, uuid: d1f7a92a-6927-467b-902c-c5b7b6213bf6, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /video/QKEYMfEw/, headers: {Host: us12c2ebe9b.vjfvyzfhhf.xyz}}}
 proxy-groups:
   - name: ?? 节点选择
     type: select
     proxies:
       - DIRECT
-      - ???? _US_美国->????_DE_德国
-      - ???? _US_美国->????_DE_德国 2
-      - ???? _US_美国->????_IT_意大利
-      - ???? _US_美国->????_DE_德国 3
-      - ???? _US_美国->????_IR_伊朗
       - ???? _CA_加拿大
       - ???? _US_美国
-      - ???? _US_美国->????_DE_德国 4
-      - ???? _US_美国->????_IN_印度
+      - ???? _CN_中国->????_PK_巴基斯坦
       - ???? _US_美国 2
+      - ???? _CN_中国->????_US_美国
       - ???? _US_美国 3
-      - ???? _US_美国->????_DE_德国 5
+      - ???? _CA_加拿大 2
+      - ???? _CN_中国->????_US_美国 2
+      - ???? _CN_中国->????_US_美国 3
+      - ???? _US_美国->????_GB_英国
       - ???? _US_美国 4
-      - ???? _CN_中国->????_RU_俄罗斯联邦
-      - ???? _US_美国->????_NL_荷兰
       - ???? _US_美国 5
-      - ???? _US_美国->????_DE_德国 6
+      - ???? _HK_香港->????_US_美国
+      - ???? _US_美国->????_GB_英国 2
+      - ???? _US_美国->????_DE_德国
+      - ???? _CN_中国->????_RU_俄罗斯联邦
+      - ???? _CN_中国->????_UA_乌克兰
+      - ???? _HK_香港->????_IN_印度
+      - ???? _CA_加拿大 3
       - ???? _US_美国 6
-      - ???? _US_美国->????_DE_德国 7
+      - ???? _HK_香港->????_IN_印度 2
       - ???? _US_美国 7
-      - ???? _GB_英国
-      - ???? _US_美国->????_DE_德国 8
+      - ???? _SG_新加坡->????_US_美国
+      - ???? _DE_德国
+      - ???? _DE_德国 2
       - ???? _US_美国 8
-      - ???? _US_美国 9
-      - ???? _US_美国 10
-      - ???? _US_美国 11
-      - ???? _AU_澳大利亚
   - name: ?? 全球直连
     type: select
     proxies:
@@ -89,33 +87,32 @@ proxy-groups:
     proxies:
       - ?? 节点选择
       - ?? 全球直连
-      - ???? _US_美国->????_DE_德国
-      - ???? _US_美国->????_DE_德国 2
-      - ???? _US_美国->????_IT_意大利
-      - ???? _US_美国->????_DE_德国 3
-      - ???? _US_美国->????_IR_伊朗
       - ???? _CA_加拿大
       - ???? _US_美国
-      - ???? _US_美国->????_DE_德国 4
-      - ???? _US_美国->????_IN_印度
+      - ???? _CN_中国->????_PK_巴基斯坦
       - ???? _US_美国 2
+      - ???? _CN_中国->????_US_美国
       - ???? _US_美国 3
-      - ???? _US_美国->????_DE_德国 5
+      - ???? _CA_加拿大 2
+      - ???? _CN_中国->????_US_美国 2
+      - ???? _CN_中国->????_US_美国 3
+      - ???? _US_美国->????_GB_英国
       - ???? _US_美国 4
-      - ???? _CN_中国->????_RU_俄罗斯联邦
-      - ???? _US_美国->????_NL_荷兰
       - ???? _US_美国 5
-      - ???? _US_美国->????_DE_德国 6
+      - ???? _HK_香港->????_US_美国
+      - ???? _US_美国->????_GB_英国 2
+      - ???? _US_美国->????_DE_德国
+      - ???? _CN_中国->????_RU_俄罗斯联邦
+      - ???? _CN_中国->????_UA_乌克兰
+      - ???? _HK_香港->????_IN_印度
+      - ???? _CA_加拿大 3
       - ???? _US_美国 6
-      - ???? _US_美国->????_DE_德国 7
+      - ???? _HK_香港->????_IN_印度 2
       - ???? _US_美国 7
-      - ???? _GB_英国
-      - ???? _US_美国->????_DE_德国 8
+      - ???? _SG_新加坡->????_US_美国
+      - ???? _DE_德国
+      - ???? _DE_德国 2
       - ???? _US_美国 8
-      - ???? _US_美国 9
-      - ???? _US_美国 10
-      - ???? _US_美国 11
-      - ???? _AU_澳大利亚
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,?? 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,?? 全球直连
