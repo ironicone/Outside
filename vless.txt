@@ -1,2 +1,2 @@
-vless://7b671cd2-233d-406c-88da-1c687727dc52@23.227.39.53:443?encryption=none&security=tls&sni=fr.freeh1.xyz&fp=chrome&type=ws&host=fr.freeh1.xyz&path=/kfhaws
+vless://ffb15cd2-0521-49de-b8aa-fb15d58c8075@23.227.39.53:443?encryption=none&security=tls&sni=v2ray3.freegradely.xyz&fp=chrome&type=ws&host=v2ray3.freegradely.xyz&path=/bqbows
 vless://0773256c-d020-436d-afea-6eee7cb6c872@172.67.71.81:443?encryption=none&security=tls&sni=xray1.freegradely.xyz&fp=chrome&type=ws&host=xray1.freegradely.xyz&path=/bodhws
