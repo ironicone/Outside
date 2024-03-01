@@ -1,4 +1,4 @@
 hysteria2://dongtaiwang.com@64.110.25.11:33337/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
 hysteria2://dongtaiwang.com@62.210.103.0:22483/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
-hysteria2://dongtaiwang.com@51.159.77.198:29277/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
+hysteria2://dongtaiwang.com@51.159.77.198:53967/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
 hysteria2://dongtaiwang.com@62.210.103.0:22483/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
