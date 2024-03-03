@@ -1,2 +1,2 @@
-vless://e659661d-8439-46e0-b1ab-d75ceaf73404@62.210.101.0:18700?encryption=none&flow=xtls-rprx-vision&security=reality&sni=update.microsoft&fp=chrome&pbk=PBRc2v9SSXpG4jjQRYNa-kgs8w9V4U3MNLuncd2d0hw&sid=6ba85179e30d4fc2&type=tcp&headerType=none
-vless://e659661d-8439-46e0-b1ab-d75ceaf73404@62.210.101.0:18700?encryption=none&flow=xtls-rprx-vision&security=reality&sni=update.microsoft&fp=chrome&pbk=PBRc2v9SSXpG4jjQRYNa-kgs8w9V4U3MNLuncd2d0hw&sid=6ba85179e30d4fc2&type=tcp&headerType=none
+vless://ebfdccb6-7416-4b6e-860d-98587344d500@fbi.gov:443?encryption=none&security=tls&sni=lg1.freessr2.xyz&fp=chrome&type=ws&host=lg1.freessr2.xyz&path=/xyakws
+vless://ebfdccb6-7416-4b6e-860d-98587344d500@23.227.39.88:443?encryption=none&security=tls&sni=lg1.freessr2.xyz&fp=chrome&type=ws&host=lg1.freessr2.xyz&path=/xyakws
