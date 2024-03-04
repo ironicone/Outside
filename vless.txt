@@ -1,2 +1,2 @@
 vless://ebfdccb6-7416-4b6e-860d-98587344d500@fbi.gov:443?encryption=none&security=tls&sni=lg1.freessr2.xyz&fp=chrome&type=ws&host=lg1.freessr2.xyz&path=/xyakws
-vless://ebfdccb6-7416-4b6e-860d-98587344d500@23.227.39.88:443?encryption=none&security=tls&sni=lg1.freessr2.xyz&fp=chrome&type=ws&host=lg1.freessr2.xyz&path=/xyakws
+vless://ebfdccb6-7416-4b6e-860d-98587344d500@yh6.dtku41.xyz:443?encryption=none&security=tls&sni=lg1.freessr2.xyz&fp=chrome&type=ws&host=lg1.freessr2.xyz&path=/xyakws
