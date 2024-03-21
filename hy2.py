@@ -15,7 +15,7 @@ all_content_new = []
 all_json_data = []
 
 for url in urls:
-    response = requests.get(url)
+    response = requests.get(url, verify=False)
     if response.status_code == 200:
         config_data = json.loads(response.text)
 
