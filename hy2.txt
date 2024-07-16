@@ -1,3 +1,4 @@
 hy2://dongtaiwang.com@51.159.2.179:23499/?insecure=1&sni=bing.com
 hy2://dongtaiwang.com@51.159.2.179:23499/?insecure=1&sni=bing.com
 hy2://dongtaiwang.com@51.159.2.179:23499/?insecure=1&sni=bing.com
+hy2://dongtaiwang.com@51.159.2.179:23499/?insecure=1&sni=bing.com
