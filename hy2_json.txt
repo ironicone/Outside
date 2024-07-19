@@ -1,8 +1,8 @@
 {
-  "server": "208.87.243.123:33599",
+  "server": "108.181.24.39:60714,40000-50000",
   "auth": "dongtaiwang.com",
   "tls": {
-    "sni": "bing.com",
+    "sni": "www.bing.com",
     "insecure": true
   },
   "quic": {
@@ -21,10 +21,10 @@
   }
 }
 {
-  "server": "38.114.103.210:30647",
+  "server": "38.114.103.210:26288,20000-30000",
   "auth": "dongtaiwang.com",
   "tls": {
-    "sni": "bing.com",
+    "sni": "www.bing.com",
     "insecure": true
   },
   "quic": {
@@ -43,10 +43,10 @@
   }
 }
 {
-  "server": "208.87.243.123:33599",
+  "server": "108.181.24.39:60714,40000-50000",
   "auth": "dongtaiwang.com",
   "tls": {
-    "sni": "bing.com",
+    "sni": "www.bing.com",
     "insecure": true
   },
   "quic": {
@@ -65,10 +65,10 @@
   }
 }
 {
-  "server": "208.87.243.123:33599",
+  "server": "108.181.24.39:60714,40000-50000",
   "auth": "dongtaiwang.com",
   "tls": {
-    "sni": "bing.com",
+    "sni": "www.bing.com",
     "insecure": true
   },
   "quic": {
