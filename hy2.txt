@@ -1,4 +1,4 @@
+hy2://dongtaiwang.com@166.1.18.178:23456/?insecure=1&sni=bing.com
 hy2://dongtaiwang.com@hy3.3124845.xyz:443/?insecure=0&sni=hy3.3124845.xyz
-hy2://dongtaiwang.com@hy3.3124845.xyz:443/?insecure=0&sni=hy3.3124845.xyz
-hy2://dongtaiwang.com@hy3.3124845.xyz:443/?insecure=0&sni=hy3.3124845.xyz
-hy2://dongtaiwang.com@hy3.3124845.xyz:443/?insecure=0&sni=hy3.3124845.xyz
+hy2://dongtaiwang.com@166.1.18.178:23456/?insecure=1&sni=bing.com
+hy2://dongtaiwang.com@166.1.18.178:23456/?insecure=1&sni=bing.com
