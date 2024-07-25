@@ -1,5 +1,5 @@
 {
-  "server": "166.1.18.178:23456",
+  "server": "207.90.239.157:22334",
   "auth": "dongtaiwang.com",
   "tls": {
     "sni": "bing.com",
@@ -31,39 +31,7 @@
   }
 }
 {
-  "server": "hy3.3124845.xyz:443",
-  "auth": "dongtaiwang.com",
-  "tls": {
-    "sni": "hy3.3124845.xyz",
-    "insecure": false
-  },
-  "obfs": {
-    "type": "salamander",
-    "salamander": {
-      "password": "dongtaiwang.com"
-    }
-  },
-  "bandwidth": {
-    "up": "11 mbps",
-    "down": "55 mbps"
-  },
-  "quic": {
-    "initStreamReceiveWindow": 16777216,
-    "maxStreamReceiveWindow": 16777216,
-    "initConnReceiveWindow": 33554432,
-    "maxConnReceiveWindow": 33554432
-  },
-  "socks5": {
-    "listen": "127.0.0.1:1080"
-  },
-  "transport": {
-    "udp": {
-      "hopInterval": "30s"
-    }
-  }
-}
-{
-  "server": "166.1.18.178:23456",
+  "server": "207.90.239.157:22334",
   "auth": "dongtaiwang.com",
   "tls": {
     "sni": "bing.com",
@@ -95,7 +63,39 @@
   }
 }
 {
-  "server": "166.1.18.178:23456",
+  "server": "207.90.239.157:22334",
+  "auth": "dongtaiwang.com",
+  "tls": {
+    "sni": "bing.com",
+    "insecure": true
+  },
+  "obfs": {
+    "type": "salamander",
+    "salamander": {
+      "password": "dongtaiwang.com"
+    }
+  },
+  "bandwidth": {
+    "up": "11 mbps",
+    "down": "55 mbps"
+  },
+  "quic": {
+    "initStreamReceiveWindow": 16777216,
+    "maxStreamReceiveWindow": 16777216,
+    "initConnReceiveWindow": 33554432,
+    "maxConnReceiveWindow": 33554432
+  },
+  "socks5": {
+    "listen": "127.0.0.1:1080"
+  },
+  "transport": {
+    "udp": {
+      "hopInterval": "30s"
+    }
+  }
+}
+{
+  "server": "207.90.239.157:22334",
   "auth": "dongtaiwang.com",
   "tls": {
     "sni": "bing.com",
