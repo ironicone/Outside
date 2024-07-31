@@ -1,19 +1,9 @@
 {
-  "server": "207.90.239.157:22334",
+  "server": "207.90.239.157:15669,30000-40000",
   "auth": "dongtaiwang.com",
   "tls": {
-    "sni": "bing.com",
+    "sni": "www.bing.com",
     "insecure": true
-  },
-  "obfs": {
-    "type": "salamander",
-    "salamander": {
-      "password": "dongtaiwang.com"
-    }
-  },
-  "bandwidth": {
-    "up": "11 mbps",
-    "down": "55 mbps"
   },
   "quic": {
     "initStreamReceiveWindow": 16777216,
@@ -31,21 +21,11 @@
   }
 }
 {
-  "server": "207.90.239.157:22334",
+  "server": "207.90.239.157:15669,30000-40000",
   "auth": "dongtaiwang.com",
   "tls": {
-    "sni": "bing.com",
+    "sni": "www.bing.com",
     "insecure": true
-  },
-  "obfs": {
-    "type": "salamander",
-    "salamander": {
-      "password": "dongtaiwang.com"
-    }
-  },
-  "bandwidth": {
-    "up": "11 mbps",
-    "down": "55 mbps"
   },
   "quic": {
     "initStreamReceiveWindow": 16777216,
@@ -63,21 +43,11 @@
   }
 }
 {
-  "server": "207.90.239.157:22334",
+  "server": "207.90.239.157:15669,30000-40000",
   "auth": "dongtaiwang.com",
   "tls": {
-    "sni": "bing.com",
+    "sni": "www.bing.com",
     "insecure": true
-  },
-  "obfs": {
-    "type": "salamander",
-    "salamander": {
-      "password": "dongtaiwang.com"
-    }
-  },
-  "bandwidth": {
-    "up": "11 mbps",
-    "down": "55 mbps"
   },
   "quic": {
     "initStreamReceiveWindow": 16777216,
@@ -95,21 +65,11 @@
   }
 }
 {
-  "server": "207.90.239.157:22334",
+  "server": "207.90.239.157:15669,30000-40000",
   "auth": "dongtaiwang.com",
   "tls": {
-    "sni": "bing.com",
+    "sni": "www.bing.com",
     "insecure": true
-  },
-  "obfs": {
-    "type": "salamander",
-    "salamander": {
-      "password": "dongtaiwang.com"
-    }
-  },
-  "bandwidth": {
-    "up": "11 mbps",
-    "down": "55 mbps"
   },
   "quic": {
     "initStreamReceiveWindow": 16777216,
