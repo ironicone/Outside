@@ -1,4 +1,16 @@
-/4
+secret: dongtaiwang.com
+mixed-port: 7890
+allow-lan: false
+log-level: info
+dns:
+  enabled: true
+  nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  fallback-filter:
+    geoip: false
+    ipcidr:
+      - 240.0.0.0/4
       - 0.0.0.0/32
 proxies:
 - name: dongtaiwang.com_0                     
