@@ -1,2 +1,0 @@
-vless://47b8b611-9e64-4d59-a1ef-b51b3ffc0cae@108.181.3.68:52562?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.amazon.com&fp=chrome&pbk=qvdphcXh7EkRcfJ7XXB5v0KH9e2RqZQhL2QNyLQdsm8&sid=&type=tcp&headerType=none
-vless://47b8b611-9e64-4d59-a1ef-b51b3ffc0cae@108.181.3.68:52562?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.amazon.com&fp=chrome&pbk=qvdphcXh7EkRcfJ7XXB5v0KH9e2RqZQhL2QNyLQdsm8&sid=&type=tcp&headerType=none
