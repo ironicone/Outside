@@ -1,6 +1,36 @@
 secret: github.com/Alvin9999
 mixed-port: 7890
+allow-lan: false
+log-level: info
+dns:
+  enabled: true
+  nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  fallback-filter:
+    geoip: false
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+proxies:
+- name: dongtaiwang.com_0                     
+  type: vmess
+  server: 104.21.238.100             
+  port: 2095                                     
+  uuid: 18d96190-c10f-448f-a82a-2d36df5c3cde       
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  network: ws
+  servername: ip16.6016725.xyz                    
+  ws-opts:
+    path: "github.com/Alvin9999"                             
+    headers:
+      Host: ip16.6016725.xyz
 
+- name: dongtaiwang.com_1                    
+  type: vmess
   server: 104.26.0.56           
   port: 2095                                     
   uuid: 18d96190-c10f-448f-a82a-2d36df5c3cde       
