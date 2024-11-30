@@ -2,3 +2,4 @@ hy2://dongtaiwang.com@46.17.41.189:50717,30000-40000/?insecure=1&sni=www.bing.co
 hy2://dongtaiwang.com@46.17.41.189:50717,30000-40000/?insecure=1&sni=www.bing.com
 hy2://dongtaiwang.com@46.17.41.189:50717,30000-40000/?insecure=1&sni=www.bing.com
 hy2://dongtaiwang.com@46.17.41.189:50717,30000-40000/?insecure=1&sni=www.bing.com
+3541654332132
