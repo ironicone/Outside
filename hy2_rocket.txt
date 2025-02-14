@@ -1,4 +1,4 @@
-hysteria2://dongtaiwang.com@46.17.41.189:50717,30000-40000/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
-hysteria2://dongtaiwang.com@46.17.41.189:50717,30000-40000/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
-hysteria2://dongtaiwang.com@46.17.41.189:50717,30000-40000/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
-hysteria2://dongtaiwang.com@46.17.41.189:50717,30000-40000/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
+hysteria2://dongtaiwang.com@46.17.41.189:51224,10000-20000/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
+hysteria2://dongtaiwang.com@46.17.41.189:51224,10000-20000/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
+hysteria2://dongtaiwang.com@46.17.41.189:51224,10000-20000/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
+hysteria2://dongtaiwang.com@46.17.41.189:51224,10000-20000/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
