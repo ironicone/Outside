@@ -1,4 +1,4 @@
-hy2://dongtaiwang.com@108.181.5.133:15544/?insecure=1&sni=apple.com
-hy2://dongtaiwang.com@46.17.41.217:37481/?insecure=1&sni=www.bing.com
-hy2://dongtaiwang.com@46.17.41.217:37481/?insecure=1&sni=www.bing.com
-hy2://dongtaiwang.com@46.29.163.171:18626/?insecure=1&sni=www.bing.com
+hy2://dongtaiwang.com@46.29.163.171:35751/?insecure=1&sni=www.bing.com
+hy2://dongtaiwang.com@46.17.41.217:4395/?insecure=1&sni=www.bing.com
+hy2://dongtaiwang.com@46.17.41.217:4395/?insecure=1&sni=www.bing.com
+hy2://dongtaiwang.com@46.29.163.171:35751/?insecure=1&sni=www.bing.com
