@@ -6,7 +6,7 @@
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "apple.com",
+    "sni": "www.bing.com",
     "insecure": true
   },
   "quic": {
@@ -32,7 +32,7 @@
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "apple.com",
+    "sni": "www.bing.com",
     "insecure": true
   },
   "quic": {
@@ -58,7 +58,7 @@
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "apple.com",
+    "sni": "www.bing.com",
     "insecure": true
   },
   "quic": {
@@ -84,7 +84,7 @@
     "down": "55 mbps"
   },
   "tls": {
-    "sni": "apple.com",
+    "sni": "www.bing.com",
     "insecure": true
   },
   "quic": {
