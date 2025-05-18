@@ -1,4 +1,4 @@
-hysteria2://dongtaiwang.com@hy2.694463.xyz:10011/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
-hysteria2://dongtaiwang.com@hy2.694463.xyz:10011/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
-hysteria2://dongtaiwang.com@hy2.694463.xyz:10011/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
-hysteria2://dongtaiwang.com@hy2.694463.xyz:10011/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
+hysteria2://dongtaiwang.com@hy2.694463.xyz:30033/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
+hysteria2://dongtaiwang.com@hy2.694463.xyz:30033/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
+hysteria2://dongtaiwang.com@hy2.694463.xyz:30033/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
+hysteria2://dongtaiwang.com@hy2.694463.xyz:30033/?peer=www.bing.com&insecure=1&obfs=none&fastopen=1
