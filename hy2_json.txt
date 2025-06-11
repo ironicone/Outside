@@ -25,7 +25,7 @@
   }
 }
 {
-  "server": "45.129.2.108:30033",
+  "server": "45.129.2.108:50850",
   "auth": "dongtaiwang.com",
   "bandwidth": {
     "up": "11 mbps",
