@@ -1,4 +1,4 @@
-hy2://dongtaiwang.com@104.168.10.176:35205,10000-20000/?insecure=1&sni=apple.com
-hy2://dongtaiwang.com@104.168.10.176:35205,10000-20000/?insecure=1&sni=apple.com
-hy2://dongtaiwang.com@104.168.10.176:35205,10000-20000/?insecure=1&sni=apple.com
-hy2://dongtaiwang.com@104.168.10.176:35205,10000-20000/?insecure=1&sni=apple.com
+hy2://dongtaiwang.com@[2001:bc8:32d7:302::11]:20088/?insecure=1&sni=apple.com
+hy2://dongtaiwang.com@[2001:bc8:32d7:302::11]:20088/?insecure=1&sni=apple.com
+hy2://dongtaiwang.com@[2001:bc8:32d7:302::11]:20088/?insecure=1&sni=apple.com
+hy2://dongtaiwang.com@[2001:bc8:32d7:302::11]:20088/?insecure=1&sni=apple.com

@@ -1,12 +1,6 @@
 {
-  "server": "104.168.10.176:35205,10000-20000",
+  "server": "[2001:bc8:32d7:302::11]:20088",
   "auth": "dongtaiwang.com",
-  "obfs": {
-    "type": "salamander",
-    "salamander": {
-      "password": "dongtaiwang.com"
-    }
-  },
   "tls": {
     "sni": "apple.com",
     "insecure": true
@@ -25,8 +19,8 @@
     "keepAlivePeriod": "60s"
   },
   "bandwidth": {
-    "down": "22mbps",
-    "up": "1mbps"
+    "up": "11 mbps",
+    "down": "55 mbps"
   },
   "fastOpen": true,
   "lazy": true,
@@ -35,14 +29,8 @@
   }
 }
 {
-  "server": "104.168.10.176:35205,10000-20000",
+  "server": "[2001:bc8:32d7:302::11]:20088",
   "auth": "dongtaiwang.com",
-  "obfs": {
-    "type": "salamander",
-    "salamander": {
-      "password": "dongtaiwang.com"
-    }
-  },
   "tls": {
     "sni": "apple.com",
     "insecure": true
@@ -61,8 +49,8 @@
     "keepAlivePeriod": "60s"
   },
   "bandwidth": {
-    "down": "22mbps",
-    "up": "1mbps"
+    "up": "11 mbps",
+    "down": "55 mbps"
   },
   "fastOpen": true,
   "lazy": true,
@@ -71,14 +59,8 @@
   }
 }
 {
-  "server": "104.168.10.176:35205,10000-20000",
+  "server": "[2001:bc8:32d7:302::11]:20088",
   "auth": "dongtaiwang.com",
-  "obfs": {
-    "type": "salamander",
-    "salamander": {
-      "password": "dongtaiwang.com"
-    }
-  },
   "tls": {
     "sni": "apple.com",
     "insecure": true
@@ -97,8 +79,8 @@
     "keepAlivePeriod": "60s"
   },
   "bandwidth": {
-    "down": "22mbps",
-    "up": "1mbps"
+    "up": "11 mbps",
+    "down": "55 mbps"
   },
   "fastOpen": true,
   "lazy": true,
@@ -107,14 +89,8 @@
   }
 }
 {
-  "server": "104.168.10.176:35205,10000-20000",
+  "server": "[2001:bc8:32d7:302::11]:20088",
   "auth": "dongtaiwang.com",
-  "obfs": {
-    "type": "salamander",
-    "salamander": {
-      "password": "dongtaiwang.com"
-    }
-  },
   "tls": {
     "sni": "apple.com",
     "insecure": true
@@ -133,8 +109,8 @@
     "keepAlivePeriod": "60s"
   },
   "bandwidth": {
-    "down": "22mbps",
-    "up": "1mbps"
+    "up": "11 mbps",
+    "down": "55 mbps"
   },
   "fastOpen": true,
   "lazy": true,
