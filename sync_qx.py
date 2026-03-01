@@ -33,22 +33,26 @@ def replace_server_remote(config: str, sub_urls: list, tag: str = "本地节点"
     """替换 server_remote 部分"""
     print("\n替换节点订阅...")
     
-    # 查找 server_remote 部分
-    pattern = r'(\[server_remote\].*?)(?=\n\[)'
+    # 移除原有的 [server_local] 和 [server_remote] 部分
+    config = re.sub(r'\[server_local\].*?(?=\n\[|$)', '', config, flags=re.DOTALL)
+    config = re.sub(r'\[server_remote\].*?(?=\n\[|$)', '', config, flags=re.DOTALL)
+    
+    # 找到第一个 [server] 或其他有效位置插入
+    pattern = r'(\[server\].*?)(?=\n\[|$)'
     match = re.search(pattern, config, re.DOTALL)
     
     if not match:
-        print("  ✗ 未找到 server_remote 部分")
+        print("  ✗ 未找到插入位置")
         return config
     
-    # 生成新的 server_remote 部分
-    new_server_remote = "[server_local]\n\n[server_remote]\n\n"
+    # 生成新的 server 部分
+    new_server = "\n[server_local]\n\n[server_remote]\n\n"
     for i, url in enumerate(sub_urls):
         tag_name = tag if i == 0 else f"节点{i+1}"
-        new_server_remote += f"# > {tag_name}\n{url}, tag={tag_name}, update-interval=86400, opt-parser=false, enabled=true\n\n"
+        new_server += f"# > {tag_name}\n{url}, tag={tag_name}, update-interval=86400, opt-parser=false, enabled=true\n\n"
     
     # 替换
-    result = config[:match.start()] + new_server_remote + config[match.end():]
+    result = config[:match.end()] + new_server + config[match.end():]
     print(f"  ✓ 节点订阅已替换")
     
     return result
