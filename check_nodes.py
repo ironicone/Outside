@@ -1,119 +1,106 @@
 #!/usr/bin/env python3
 """
 节点测速脚本
-测试节点连通性，筛选可用节点
+测试节点延迟，筛选延迟最低的节点
 """
 
 import socket
+import time
 import re
-import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from utils import FileManager
 
-TIMEOUT = 5  # 超时秒数
+TIMEOUT = 3  # 超时秒数
 
 
 def parse_node(node: str) -> dict:
     """解析节点 URL"""
-    result = {
-        "type": None,
-        "address": None,
-        "port": None,
-        "raw": node
-    }
+    result = {"address": None, "port": None, "raw": node}
     
     # VLESS
-    if node.startswith("vless://"):
-        match = re.search(r'vless://([^@]+)@([^:]+):(\d+)', node)
-        if match:
-            result["type"] = "vless"
-            result["address"] = match.group(2)
-            result["port"] = int(match.group(3))
+    match = re.search(r'vless://[^@]+@([^:]+):(\d+)', node)
+    if match:
+        result["address"] = match.group(1)
+        result["port"] = int(match.group(2))
+        return result
     
     # Hysteria2
-    elif node.startswith("hysteria2://") or node.startswith("hy2://"):
-        match = re.search(r'hysteria2?://([^@]+)@([^:]+):(\d+)', node)
-        if match:
-            result["type"] = "hysteria2"
-            result["address"] = match.group(2)
-            result["port"] = int(match.group(3))
+    match = re.search(r'hysteria2?://[^@]+@([^:]+):(\d+)', node)
+    if match:
+        result["address"] = match.group(1)
+        result["port"] = int(match.group(2))
+        return result
     
     # Trojan
-    elif node.startswith("trojan://"):
-        match = re.search(r'trojan://([^@]+)@([^:]+):(\d+)', node)
-        if match:
-            result["type"] = "trojan"
-            result["address"] = match.group(2)
-            result["port"] = int(match.group(3))
-    
-    # VMess
-    elif node.startswith("vmess://"):
-        # 解析 JSON 格式的 vmess
-        try:
-            import base64
-            json_str = node[8:]
-            data = base64.b64decode(json_str).decode()
-            import json
-            config = json.loads(data)
-            result["type"] = "vmess"
-            result["address"] = config.get("add", "")
-            result["port"] = int(config.get("port", 0))
-        except:
-            pass
+    match = re.search(r'trojan://[^@]+@([^:]+):(\d+)', node)
+    if match:
+        result["address"] = match.group(1)
+        result["port"] = int(match.group(2))
+        return result
     
     return result
 
 
-def check_port(host: str, port: int) -> bool:
-    """检查端口是否开放"""
-    try:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(TIMEOUT)
-        result = sock.connect_ex((host, port))
-        sock.close()
-        return result == 0
-    except:
-        return False
-
-
-def test_node(node: str) -> tuple:
-    """测试单个节点"""
+def test_latency(node: str) -> tuple:
+    """测试单个节点延迟"""
     parsed = parse_node(node)
     
     if not parsed["address"] or not parsed["port"]:
-        return node, False, "解析失败"
+        return node, 9999
     
-    is_available = check_port(parsed["address"], parsed["port"])
-    return node, is_available, f"{parsed['address']}:{parsed['port']}"
+    start = time.time()
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(TIMEOUT)
+        result = sock.connect_ex((parsed["address"], parsed["port"]))
+        sock.close()
+        
+        if result == 0:
+            latency = int((time.time() - start) * 1000)  # 毫秒
+            return node, latency
+    except:
+        pass
+    
+    return node, 9999
 
 
 def main():
     # 读取节点
-    print("读取节点文件...")
+    print("读取节点...")
     all_nodes = FileManager.read_lines("nodes.txt")
     print(f"共 {len(all_nodes)} 个节点\n")
     
+    # 随机取500个测试
+    import random
+    test_nodes = random.sample(all_nodes, min(500, len(all_nodes)))
+    print(f"测速中 (前 {len(test_nodes)} 个)...\n")
+    
     # 测速
-    print("开始测速 (只检测端口开放)...")
-    working_nodes = []
-    
+    results = []
     with ThreadPoolExecutor(max_workers=100) as executor:
-        results = list(executor.map(test_node, all_nodes[:500]))  # 限制前500个
+        results = list(executor.map(test_latency, test_nodes))
     
-    for node, is_available, info in results:
-        if is_available:
-            working_nodes.append(node)
-            print(f"✓ 可用: {info}")
-        else:
-            print(f"✗ 不可用: {info}")
+    # 按延迟排序
+    results.sort(key=lambda x: x[1])
     
-    # 保存可用节点
-    FileManager.save_lines(working_nodes, "nodes_working.txt")
+    # 取前50个
+    top_50 = [node for node, latency in results if latency < 9999][:50]
+    
+    # 保存
+    FileManager.save_lines(top_50, "nodes_top50.txt")
+    
+    # 输出结果
+    print("=== 延迟最低的 50 个节点 ===\n")
+    parsed_test = parse_node("")
+    for i, (node, latency) in enumerate(results[:50], 1):
+        if latency < 9999:
+            parsed_test = parse_node(node)
+            addr = parsed_test.get('address', node[:30])
+            print(f"{i:2}. {addr:30} - {latency}ms")
     
     print(f"\n=== 完成 ===")
-    print(f"总节点: {len(all_nodes)}")
-    print(f"可用节点: {len(working_nodes)}")
-    print(f"保存到: nodes_working.txt")
+    print(f"可用: {len(top_50)} 个")
+    print(f"保存到: nodes_top50.txt")
 
 
 if __name__ == "__main__":
