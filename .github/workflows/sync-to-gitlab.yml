@@ -21,4 +21,4 @@ jobs:
           destination_branch: "main"
           source_branch: "main"
         env:
-          GITLAB_DEST_PAT: ${{ secrets.GITLAB_TOKEN }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
