@@ -37,17 +37,15 @@ def replace_server_remote(config: str, sub_urls: list, tag: str = "本地节点"
     config = re.sub(r'\[server_local\].*?(?=\n\[|$)', '\n', config, flags=re.DOTALL)
     config = re.sub(r'\[server_remote\].*?(?=\n\[|$)', '\n', config, flags=re.DOTALL)
     
-    # 找到 [general] 后插入
-    match = re.search(r'\[general\]', config)
+    # 找到 [dns] 前插入
+    match = re.search(r'\[dns\]', config)
     
     if not match:
-        print("  ✗ 未找到 [general] 位置")
+        print("  ✗ 未找到 [dns] 位置")
         return config
     
     # 生成新的 section
-    new_section = """
-
-[server_local]
+    new_section = """[server_local]
 
 
 [server_remote]
@@ -57,9 +55,8 @@ def replace_server_remote(config: str, sub_urls: list, tag: str = "本地节点"
         tag_name = tag if i == 0 else f"节点{i+1}"
         new_section += f"# > {tag_name}\n{url}, tag={tag_name}, update-interval=86400, opt-parser=false, enabled=true\n\n"
     
-    # 在 [general] 后插入
-    insert_pos = match.end()
-    result = config[:insert_pos] + new_section + config[insert_pos:]
+    # 在 [dns] 前插入
+    result = config[:match.start()] + new_section + config[match.start():]
     print(f"  ✓ 节点订阅已替换")
     
     return result
