@@ -1,0 +1,26 @@
+name: Sync to GitLab
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to GitLab
+        uses: wei/git-sync@v4
+        with:
+          source_repo: "https://github.com/ironicone/Outside.git"
+          destination_repo: "https://gitlab.com/ironicone/Outside.git"
+          destination_branch: "main"
+          source_branch: "main"
+          git_config_name: "ironicone"
+          git_config_email: "957570951@qq.com"
+        env:
+          GITLAB_DEST_PAT: ${{ secrets.GITLAB_TOKEN }}
