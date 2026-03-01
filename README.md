@@ -5,19 +5,18 @@
 ## 功能
 
 ### QX 配置自动同步
-- 每天自动从[墨鱼库](https://ddgksf2013.top/Profile/QuantumultX.conf)同步 Quantumult X 配置
-- 节点订阅使用 **GitLab bendi.txt** (本地节点，非公共抓取)
+- 每天自动从墨鱼库同步 Quantumult X 配置
+- 节点订阅替换为本地节点 (非公共抓取)
 - 生成 `QuantumultX.conf` 可直接导入 QX 使用
 
 ### GitHub → GitLab 自动同步
 - 推送到 main 分支时自动同步到 GitLab
-- 仓库地址: https://gitlab.com/ironicone/Outside
 
 ## 文件说明
 
 | 文件 | 说明 |
 |------|------|
-| `bendi.txt` | 本地节点列表 (不抓取公共节点) |
+| `bendi.txt` | 本地节点列表 |
 | `QuantumultX.conf` | QX 配置文件 |
 | `sync_qx.py` | QX 配置同步脚本 |
 
