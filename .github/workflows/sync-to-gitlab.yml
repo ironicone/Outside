@@ -17,8 +17,6 @@ jobs:
         uses: wei/git-sync@v3
         with:
           source_repo: "https://github.com/ironicone/Outside.git"
-          destination_repo: "https://gitlab.com/ironicone/Outside.git"
+          destination_repo: "https://gitlab-ci-token:${{ secrets.GITLAB_TOKEN }}@gitlab.com/ironicone/Outside.git"
           destination_branch: "main"
           source_branch: "main"
-        env:
-          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
