@@ -11,8 +11,8 @@ import re
 # 配置
 墨鱼QX配置 = "https://ddgksf2013.top/Profile/QuantumultX.conf"
 
-# 节点订阅链接 (GitHub Raw)
-节点订阅链接 = "https://raw.githubusercontent.com/ironicone/Outside/main/nodes_top50.txt"
+# 节点订阅链接 (GitLab bendi.txt)
+节点订阅链接 = "https://gitlab.com/ironicone/Outside/-/raw/main/bendi.txt"
 
 
 def fetch_remote_config(url: str) -> str:
@@ -78,7 +78,7 @@ def main():
     
     print("\n=== 完成 ===")
     print("配置文件: QuantumultX.conf")
-    print(f"节点订阅: {节点订阅链接}")
+    print(f"节点订阅: {节点订阅链接|")
     print("可导入 QuantumultX 使用")
 
 
