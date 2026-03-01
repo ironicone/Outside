@@ -16,7 +16,6 @@
 
 | 文件 | 说明 |
 |------|------|
-| `bendi.txt` | 本地节点列表 |
 | `QuantumultX.conf` | QX 配置文件 |
 | `sync_qx.py` | QX 配置同步脚本 |
 
