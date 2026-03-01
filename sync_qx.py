@@ -11,8 +11,11 @@ import re
 # 配置
 墨鱼QX配置 = "https://ddgksf2013.top/Profile/QuantumultX.conf"
 
-# 节点订阅链接 (GitLab bendi.txt)
-节点订阅链接 = "https://gitlab.com/ironicone/Outside/-/raw/main/bendi.txt"
+# 节点订阅链接
+节点订阅链接列表 = [
+    "https://gitlab.com/ironicone/Outside/-/raw/main/bendi.txt",
+    "http://43.139.168.201/link/u0KNHoqk9Ilqb0nU",
+]
 
 
 def fetch_remote_config(url: str) -> str:
@@ -26,7 +29,7 @@ def fetch_remote_config(url: str) -> str:
         raise Exception(f"获取失败: {resp.status_code}")
 
 
-def replace_server_remote(config: str, sub_url: str, tag: str = "本地节点") -> str:
+def replace_server_remote(config: str, sub_urls: list, tag: str = "本地节点") -> str:
     """替换 server_remote 部分"""
     print("\n替换节点订阅...")
     
@@ -39,19 +42,14 @@ def replace_server_remote(config: str, sub_url: str, tag: str = "本地节点") 
         return config
     
     # 生成新的 server_remote 部分
-    new_server_remote = f"""[server_local]
-
-
-[server_remote]
-
-# > {tag}
-{sub_url}, tag={tag}, update-interval=86400, opt-parser=false, enabled=true
-
-"""
+    new_server_remote = "[server_local]\n\n[server_remote]\n\n"
+    for i, url in enumerate(sub_urls):
+        tag_name = tag if i == 0 else f"节点{i+1}"
+        new_server_remote += f"# > {tag_name}\n{url}, tag={tag_name}, update-interval=86400, opt-parser=false, enabled=true\n\n"
     
     # 替换
     result = config[:match.start()] + new_server_remote + config[match.end():]
-    print(f"  ✓ 节点订阅已替换为: {sub_url}")
+    print(f"  ✓ 节点订阅已替换")
     
     return result
 
@@ -71,15 +69,13 @@ def main():
     config = fetch_remote_config(墨鱼QX配置)
     
     # 2. 替换节点订阅链接
-    new_config = replace_server_remote(config, 节点订阅链接)
+    new_config = replace_server_remote(config, 节点订阅链接列表)
     
     # 3. 保存
     save_config(new_config, "QuantumultX.conf")
     
     print("\n=== 完成 ===")
     print("配置文件: QuantumultX.conf")
-    sub_url = 节点订阅链接
-    print(f"节点订阅: {sub_url}")
     print("可导入 QuantumultX 使用")
 
 
