@@ -20,7 +20,5 @@ jobs:
           destination_repo: "https://gitlab.com/ironicone/Outside.git"
           destination_branch: "main"
           source_branch: "main"
-          git_config_name: "ironicone"
-          git_config_email: "957570951@qq.com"
         env:
           GITLAB_DEST_PAT: ${{ secrets.GITLAB_TOKEN }}
