@@ -1,0 +1,47 @@
+name: QX Config Sync
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # 每周一 UTC 0:00 运行
+  workflow_dispatch:  # 支持手动触发
+  push:
+    branches:
+      - main
+
+env:
+  TZ: Asia/Shanghai
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests pycryptodome
+
+      - name: Fetch latest nodes
+        run: python fastnodes.py
+
+      - name: Run speed test
+        run: python check_nodes.py
+
+      - name: Sync QX config
+        run: python sync_qx.py
+
+      - name: Commit and push
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add nodes_top50.txt QuantumultX.conf
+          git commit -m "chore: 每周配置同步 $(date '+%Y-%m-%d')" || exit 0
+          git push
