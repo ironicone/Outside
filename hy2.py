@@ -1,104 +1,55 @@
-#!/usr/bin/env python3
-"""
- hysteria2 节点抓取脚本
- 从多个 URL 获取 hysteria2 配置并转换为节点链接
-"""
-
-from utils import NodeFetcher, NodeConverter, FileManager
+import requests
 import json
 
-# 配置
-CONFIG = {
-    "urls": [
-        "https://www.gitlabip.xyz/Alvin9999/pac2/master/hysteria2/1/config.json",
-        "https://www.githubip.xyz/Alvin9999/pac2/master/hysteria2/config.json",
-        "https://www.gitlabip.xyz/Alvin9999/pac2/master/hysteria2/13/config.json",
-        "https://www.githubip.xyz/Alvin9999/pac2/master/hysteria2/2/config.json"
-    ],
-    "output": {
-        "original": "hy2_original.txt",
-        "new": "hy2_rocket.txt",
-        "json": "hy2_json.txt"
-    }
-}
+# URL列表
+urls = [
+    "https://www.gitlabip.xyz/Alvin9999/pac2/master/hysteria2/1/config.json",
+    "https://www.githubip.xyz/Alvin9999/pac2/master/hysteria2/config.json",
+    "https://www.gitlabip.xyz/Alvin9999/pac2/master/hysteria2/13/config.json",
+    "https://www.githubip.xyz/Alvin9999/pac2/master/hysteria2/2/config.json"
+]
 
+# 创建三个空的列表，用于存储所有内容
+all_content_original = []
+all_content_new = []
+all_json_data = []
 
-def parse_hy2_config(config_data: dict) -> dict:
-    """解析 hysteria2 配置"""
-    auth = config_data.get("auth", "")
-    server = config_data.get("server", "")
-    tls = config_data.get("tls", {})
-    insecure = tls.get("insecure", False)
-    sni = tls.get("sni", "")
-    
-    return {
-        "auth": auth,
-        "server": server,
-        "sni": sni,
-        "insecure": insecure
-    }
+for url in urls:
+    response = requests.get(url, verify=False)
+    if response.status_code == 200:
+        config_data = json.loads(response.text)
 
+        # 生成原有格式内容
+        auth = config_data.get("auth", "")
+        server = config_data.get("server", "")
+        tls = config_data.get("tls", {})
+        insecure = tls.get("insecure", False)
+        sni = tls.get("sni", "")
+        original_content = f"hy2://{auth}@{server}/?insecure={int(insecure)}&sni={sni}"
+        all_content_original.append(original_content)
 
-def main():
-    fetcher = NodeFetcher()
-    converter = NodeConverter()
-    
-    original_links = []
-    new_links = []
-    json_data = []
-    
-    print(f"开始抓取 {len(CONFIG['urls'])} 个 URL...")
-    
-    for url in CONFIG["urls"]:
-        response = fetcher.get(url)
-        if not response:
-            continue
-            
-        try:
-            config_data = response.json()
-            parsed = parse_hy2_config(config_data)
-            
-            # 生成原始格式
-            original = converter.hy2_to_original_link(
-                parsed["auth"],
-                parsed["server"],
-                parsed["sni"],
-                parsed["insecure"]
-            )
-            original_links.append(original)
-            
-            # 生成新格式
-            new = converter.hy2_to_link(
-                parsed["auth"],
-                parsed["server"],
-                parsed["sni"],
-                parsed["insecure"]
-            )
-            new_links.append(new)
-            
-            # 保存原始 JSON
-            json_data.append(json.dumps(config_data, indent=2))
-            
-            print(f"[成功] {url}")
-            
-        except json.JSONDecodeError as e:
-            print(f"[错误] JSON 解析失败: {url}, {e}")
-        except Exception as e:
-            print(f"[错误] 处理失败: {url}, {e}")
-    
-    # 去重
-    original_links = FileManager.deduplicate(original_links)
-    new_links = FileManager.deduplicate(new_links)
-    
-    # 保存文件
-    FileManager.save_lines(original_links, CONFIG["output"]["original"])
-    FileManager.save_lines(new_links, CONFIG["output"]["new"])
-    FileManager.save_lines(json_data, CONFIG["output"]["json"])
-    
-    print(f"\n完成! 共获取 {len(original_links)} 个节点")
-    print(f"原始格式: {CONFIG['output']['original']}")
-    print(f"新格式: {CONFIG['output']['new']}")
+        # 生成新格式内容
+        new_content = f"hysteria2://{auth}@{server}/?peer={sni}&insecure={int(insecure)}&obfs=none&fastopen=1"
+        all_content_new.append(new_content)
 
+        # 将JSON数据按原始格式添加到列表
+        json_str = json.dumps(config_data, indent=2)
+        all_json_data.append(json_str)
 
-if __name__ == "__main__":
-    main()
+print("所有内容已生成")
+
+# 将原始JSON数据保存到txt文件
+with open("hy2_json.txt", "w", encoding="utf-8") as f:
+    for json_data in all_json_data:
+        f.write(json_data + "\n")
+
+# 将所有内容保存到一个单独的txt文件
+with open("hy2.txt", "w", encoding="utf-8") as f:
+    for content in all_content_original:
+        f.write(content + "\n")
+
+with open("hy2_rocket.txt", "w", encoding="utf-8") as f:
+    for content in all_content_new:
+        f.write(content + "\n")
+
+print("所有内容已保存到文件")

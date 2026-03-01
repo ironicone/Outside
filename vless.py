@@ -1,142 +1,80 @@
-#!/usr/bin/env python3
-"""
- VLESS 节点抓取脚本
- 从多个 URL 获取 VLESS 配置并转换为节点链接
- 支持 TCP 和 WebSocket 协议
-"""
-
-from utils import NodeFetcher, NodeConverter, FileManager
 import json
+import requests
+import base64
 
-# 配置
-CONFIG = {
-    "urls": [
-        "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/1/config.json",
-        "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/config.json",
-        "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/3/config.json"
-    ],
-    "output": {
-        "links": "vless.txt",
-        "base64": "vless_base64.txt"
-    }
-}
+# 定义JSON文件的URL列表
+json_urls = [
+    "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/1/config.json",
+    "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/config.json",
+    "https://raw.githubusercontent.com/Alvin9999/pac2/master/xray/3/config.json"
+]
 
+# 初始化一个空列表来存储所有的VLESS链接
+vless_links = []
 
-def parse_vless_config(config_data: dict) -> list:
-    """解析 VLESS 配置"""
-    links = []
-    outbounds = config_data.get('outbounds', [])
-    
-    for vless_info in outbounds:
-        if vless_info.get('protocol', '') != 'vless':
-            continue
-            
-        try:
-            settings = vless_info.get('settings', {})
-            vnext = settings.get('vnext', [])
-            if not vnext:
-                continue
-                
-            user = vnext[0].get('users', [])[0]
-            uuid = user.get('id', '')
-            address = vnext[0].get('address', '')
-            port = vnext[0].get('port', '')
-            
-            stream = vless_info.get('streamSettings', {})
-            network = stream.get('network', '')
-            
-            if network == 'tcp':
-                link = _parse_tcp(uuid, address, port, stream)
-            elif network == 'ws':
-                link = _parse_ws(uuid, address, port, stream)
-            
-            if link:
-                links.append(link)
-                
-        except (KeyError, IndexError) as e:
-            print(f"[警告] 解析配置失败: {e}")
-            continue
-    
-    return links
+# 循环处理每个JSON文件的URL
+for json_url in json_urls:
+    # 发送GET请求以获取JSON数据
+    response = requests.get(json_url)
 
+    # 检查请求是否成功
+    if response.status_code == 200:
+        config_data = response.json()
+        outbounds = config_data.get('outbounds', [])
 
-def _parse_tcp(uuid: str, address: str, port: int, stream: dict) -> str:
-    """解析 TCP + REALITY 配置"""
-    reality = stream.get('realitySettings', {})
-    
-    params = {
-        "encryption": "none",
-        "flow": "xtls-rprx-vision",
-        "security": "reality",
-        "sni": reality.get('serverName', ''),
-        "fp": reality.get('fingerprint', ''),
-        "pbk": reality.get('publicKey', ''),
-        "sid": reality.get('shortId', ''),
-        "type": "tcp",
-        "headerType": "none"
-    }
-    
-    param_str = "&".join([f"{k}={v}" for k, v in params.items()])
-    return f"vless://{uuid}@{address}:{port}?{param_str}"
+        for vless_info in outbounds:
+            if vless_info.get('protocol', '') == 'vless':
+                users = vless_info.get('settings', {}).get('vnext', [])[0].get('users', [])
+                if users:
+                    uuid = users[0].get('id', '')
+                    server_address = vless_info.get('settings', {}).get('vnext', [])[0].get('address', '')
+                    server_port = vless_info.get('settings', {}).get('vnext', [])[0].get('port', '')
 
+                    stream_settings = vless_info.get('streamSettings', {})
+                    network = stream_settings.get('network', '')
 
-def _parse_ws(uuid: str, address: str, port: int, stream: dict) -> str:
-    """解析 WebSocket + TLS 配置"""
-    tls_settings = stream.get('tlsSettings', {})
-    ws_settings = stream.get('wsSettings', {})
-    
-    params = {
-        "encryption": "none",
-        "security": "tls",
-        "sni": tls_settings.get('serverName', ''),
-        "fp": tls_settings.get('fingerprint', ''),
-        "type": "ws",
-        "host": ws_settings.get('headers', {}).get('Host', ''),
-        "path": ws_settings.get('path', '')
-    }
-    
-    param_str = "&".join([f"{k}={v}" for k, v in params.items() if v])
-    return f"vless://{uuid}@{address}:{port}?{param_str}"
+                    if network == 'tcp':
+                        security = 'none'
+                        reality_settings = stream_settings.get('realitySettings', {})
+                        sni = reality_settings.get('serverName', '')
+                        fingerprint = reality_settings.get('fingerprint', '')
+                        publicKey = reality_settings.get('publicKey', '')
+                        shortId = reality_settings.get('shortId', '')
+                        sid = reality_settings.get('spiderX', '')
 
+                        vless_link = f'vless://{uuid}@{server_address}:{server_port}?encryption={security}&flow=xtls-rprx-vision&security=reality&sni={sni}&fp={fingerprint}&pbk={publicKey}&sid={shortId}&type=tcp&headerType=none'
+                        vless_links.append(vless_link)
+                    elif network == 'ws':
+                        security = 'tls'
+                        tls_settings = stream_settings.get('tlsSettings', {})
+                        sni = tls_settings.get('serverName', '')
+                        fingerprint = tls_settings.get('fingerprint', '')
 
-def main():
-    fetcher = NodeFetcher()
-    
-    all_links = []
-    
-    print(f"开始抓取 {len(CONFIG['urls'])} 个 URL...")
-    
-    for url in CONFIG["urls"]:
-        response = fetcher.get(url)
-        if not response:
-            continue
-            
-        try:
-            config_data = response.json()
-            links = parse_vless_config(config_data)
-            all_links.extend(links)
-            print(f"[成功] {url}, 获取 {len(links)} 个节点")
-            
-        except json.JSONDecodeError as e:
-            print(f"[错误] JSON 解析失败: {url}, {e}")
-        except Exception as e:
-            print(f"[错误] 处理失败: {url}, {e}")
-    
-    # 去重
-    all_links = FileManager.deduplicate(all_links)
-    
-    # 保存链接
-    FileManager.save_lines(all_links, CONFIG["output"]["links"])
-    
-    # 生成 base64
-    text_content = "\n".join(all_links)
-    base64_content = FileManager.to_base64(text_content)
-    FileManager.append_line(base64_content, CONFIG["output"]["base64"])
-    
-    print(f"\n完成! 共获取 {len(all_links)} 个节点")
-    print(f"链接文件: {CONFIG['output']['links']}")
-    print(f"Base64: {CONFIG['output']['base64']}")
+                        ws_settings = stream_settings.get('wsSettings', {})
+                        path = ws_settings.get('path', '')
+                        host = ws_settings.get('headers', {}).get('Host', '')
 
+                        vless_link = f'vless://{uuid}@{server_address}:{server_port}?encryption=none&security={security}&sni={sni}&fp={fingerprint}&type=ws&host={host}&path={path}'
+                        vless_links.append(vless_link)
+    else:
+        print(f'无法获取JSON数据，HTTP状态码：{response.status_code}，URL: {json_url}')
 
-if __name__ == "__main__":
-    main()
+# 保存所有的VLESS链接到txt文件
+with open('vless.txt', 'w') as txt_file:
+    for vless_link in vless_links:
+        txt_file.write(vless_link + '\n')
+
+print(f'所有的VLESS链接已保存到vless.txt文件')
+
+# 读取生成的txt文件
+with open('vless.txt', 'r') as txt_file:
+    vless_links_text = txt_file.read()
+
+# 对txt文件内容进行base64编码
+encoded_text = base64.b64encode(vless_links_text.encode('utf-8')).decode('utf-8')
+
+# 保存base64编码后的内容到另一个txt文件
+with open('vless_base64.txt', 'w') as encoded_file:
+    encoded_file.write(encoded_text)
+
+print('base64编码后的内容已保存到vless_base64.txt文件')
