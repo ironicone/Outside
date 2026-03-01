@@ -78,7 +78,8 @@ def main():
     
     print("\n=== 完成 ===")
     print("配置文件: QuantumultX.conf")
-    print(f"节点订阅: {节点订阅链接|")
+    sub_url = 节点订阅链接
+    print(f"节点订阅: {sub_url}")
     print("可导入 QuantumultX 使用")
 
 
