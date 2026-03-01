@@ -12,30 +12,25 @@ permissions:
   contents: write
 
 jobs:
-  # a single job
   a-job-name:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.4.2
+        uses: actions/checkout@v4
+      
       - name: Set up Python3
-        uses: actions/setup-python@v2.3.1
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      
       - name: Install requirements
         run: |
           python3 -m pip install --upgrade pip
           pip3 install -r ./requirements.txt
-      - name: Run hy2.py
-        run: python3 ./hy2.py
-      - name: Run vless.py
-        run: python3 ./vless.py
-      - name: Run yaml.py
-        run: python3 ./yaml.py
-      - name: Run times.py
-        run: python3 ./times.py
+      
       - name: Run sync_qx.py
         run: python3 ./sync_qx.py
+      
       - name: Commit
         env: 
          GIT_NAME: ${{ secrets.GIT_NAME }}
@@ -44,14 +39,14 @@ jobs:
           git config --local user.name $env:GIT_NAME
           git config --local user.email $env:GIT_EMAIL
           git add .
-          git commit -m "Github action update at `date '+%Y-%m-%d %H:%M:%S'`."
+          git commit -m "Github action update at \`date '+%Y-%m-%d %H:%M:%S'\`."
+      
       - name: Push
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main     
-      - name: 'Checkout'
-        uses: actions/checkout@v1
+      
       - name: 'Mirror to gitlab'
         uses: pixta-dev/repository-mirroring-action@v1
         with:
